@@ -15,7 +15,7 @@ Product:
   - Search products by page
 
 Next release:
-  - create frontend
+  - create a frontend interface
 ---
   
 Code:
