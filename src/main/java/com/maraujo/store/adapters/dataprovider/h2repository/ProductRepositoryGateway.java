@@ -1,7 +1,7 @@
-package com.maraujo.store.adapters.dataprovider;
+package com.maraujo.store.adapters.dataprovider.h2repository;
 
-import com.maraujo.store.adapters.dataprovider.entity.ProductEntity;
-import com.maraujo.store.adapters.dataprovider.mapper.ProductMapper;
+import com.maraujo.store.adapters.dataprovider.h2repository.entity.ProductEntity;
+import com.maraujo.store.adapters.dataprovider.h2repository.mapper.ProductMapper;
 import com.maraujo.store.core.domain.Product;
 import com.maraujo.store.core.ports.ProductRepository;
 import lombok.extern.log4j.Log4j2;

@@ -1,6 +1,6 @@
-package com.maraujo.store.adapters.dataprovider.mapper;
+package com.maraujo.store.adapters.dataprovider.h2repository.mapper;
 
-import com.maraujo.store.adapters.dataprovider.entity.ProductEntity;
+import com.maraujo.store.adapters.dataprovider.h2repository.entity.ProductEntity;
 import com.maraujo.store.core.domain.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;

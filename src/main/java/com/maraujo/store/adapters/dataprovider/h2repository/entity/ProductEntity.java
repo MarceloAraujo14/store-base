@@ -1,4 +1,4 @@
-package com.maraujo.store.adapters.dataprovider.entity;
+package com.maraujo.store.adapters.dataprovider.h2repository.entity;
 
 import lombok.*;
 import org.hibernate.Hibernate;

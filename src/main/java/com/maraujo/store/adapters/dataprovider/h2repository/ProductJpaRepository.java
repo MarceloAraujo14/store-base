@@ -1,6 +1,6 @@
-package com.maraujo.store.adapters.dataprovider;
+package com.maraujo.store.adapters.dataprovider.h2repository;
 
-import com.maraujo.store.adapters.dataprovider.entity.ProductEntity;
+import com.maraujo.store.adapters.dataprovider.h2repository.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
