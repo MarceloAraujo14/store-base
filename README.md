@@ -15,7 +15,9 @@ Product:
   - Search products by page
 
 Next release:
-  - create a frontend interface
+  - feat/001 - create a frontend interface
+  - feat/002 - implement postgresql database
+  - feat/003 - implement pagination return
 ---
   
 Code:

@@ -6,7 +6,7 @@ spring:
     name: product-registration-api
 
   datasource:
-    url: jdbc:h2:mem:product-registration-db
+    url: jdbc:h2:mem:store-db
     driver-class-name: org.h2.Driver
     username: "admin"
     password: "admin"

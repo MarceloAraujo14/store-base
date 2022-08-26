@@ -5,10 +5,10 @@ import com.maraujo.store.adapters.dataprovider.h2repository.mapper.ProductMapper
 import com.maraujo.store.core.domain.Product;
 import com.maraujo.store.core.ports.ProductRepository;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 import static com.maraujo.store.api.util.PageUtils.formatPageSearch;
 
@@ -38,26 +38,18 @@ public record ProductRepositoryGateway(
     }
 
     @Override
-    public Product findByName(String productName) {
-        log.info("PROCESSING - findByName - product name: {}", productName);
-        ProductEntity product = productJpaRepository.findByProductName(productName);
-        log.info("SUCCESS - findByName - product: {}", product);
-        return mapper.toProduct(
-                product);
-    }
-
-    @Override
-    public List<Product> listAllProductsPageable(Integer page) {
-        log.info("PROCESSING - listAllProductsPageable - page: {}", page);
-        page = formatPageSearch(page);
+    public Page<Product> listAllProductsPageable(Pageable page) {
+        log.info("PROCESSING - listAllProductsPageable - page: {}", page.getPageNumber());
+        page = page.withPage(formatPageSearch(page.getPageNumber()));
         return mapper.toProductList(
-                productJpaRepository.findAll(PageRequest.of(page, 10)));
+                productJpaRepository.findAll(PageRequest.of(page.getPageNumber(), 10)));
     }
 
     @Override
-    public List<Product> findByProductNameContains(String name) {
-        log.info("PROCESSING - findByProductNameContains - product name: {}", name);
-        List<ProductEntity> productList = productJpaRepository.findByProductNameContains(name);
+    public Page<Product> findByProductName(String name, Pageable page) {
+        log.info("PROCESSING - findByProductNameContains - product name: {} - page: {}", name, page.getPageNumber());
+        page = page.withPage(formatPageSearch(page.getPageNumber()));
+        Page<ProductEntity> productList = productJpaRepository.findByProductName(name, page);
         return mapper.toProductList(
                 productList);
     }
