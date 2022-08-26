@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 @Component
 public class ProductMapper {
@@ -37,14 +38,9 @@ public class ProductMapper {
                 .build();
     }
 
-    public List<Product> toProductList(Page<ProductEntity> list){
+    public Page<Product> toProductList(Page<ProductEntity> list){
         return
-                list.stream().map(this::toProduct).toList();
-    }
-
-    public List<Product> toProductList(List<ProductEntity> list){
-        return
-                list.stream().map(this::toProduct).toList();
+                (Page<Product>) list.stream().map(this::toProduct).toList();
     }
 
 }

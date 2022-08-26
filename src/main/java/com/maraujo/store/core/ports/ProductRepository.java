@@ -1,8 +1,8 @@
 package com.maraujo.store.core.ports;
 
 import com.maraujo.store.core.domain.Product;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ProductRepository {
 
@@ -12,9 +12,9 @@ public interface ProductRepository {
 
     Product findByName(String productName);
 
-    List<Product> listAllProductsPageable(Integer page);
+    Page<Product> listAllProductsPageable(Pageable page);
 
-    List<Product> findByProductNameContains(String name);
+    Page<Product> findByProductNameContains(String name);
 
     void deleteByCode(Long registrationCode);
 

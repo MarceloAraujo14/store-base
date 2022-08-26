@@ -5,7 +5,9 @@ import com.maraujo.store.adapters.dataprovider.h2repository.mapper.ProductMapper
 import com.maraujo.store.core.domain.Product;
 import com.maraujo.store.core.ports.ProductRepository;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,17 +49,17 @@ public record ProductRepositoryGateway(
     }
 
     @Override
-    public List<Product> listAllProductsPageable(Integer page) {
+    public Page<Product> listAllProductsPageable(Pageable page) {
         log.info("PROCESSING - listAllProductsPageable - page: {}", page);
-        page = formatPageSearch(page);
+        page = page.withPage(formatPageSearch(page.getPageNumber()));
         return mapper.toProductList(
-                productJpaRepository.findAll(PageRequest.of(page, 10)));
+                productJpaRepository.findAll(PageRequest.of(page.getPageNumber(), 10)));
     }
 
     @Override
-    public List<Product> findByProductNameContains(String name) {
+    public Page<Product> findByProductNameContains(String name) {
         log.info("PROCESSING - findByProductNameContains - product name: {}", name);
-        List<ProductEntity> productList = productJpaRepository.findByProductNameContains(name);
+        Page<ProductEntity> productList = productJpaRepository.findByProductNameContains(name);
         return mapper.toProductList(
                 productList);
     }
