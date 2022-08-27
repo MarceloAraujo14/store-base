@@ -16,7 +16,7 @@ async function findProductById() {
 
 async function findProductsByPage() {
     try {
-        const productResponse = await fetch(`${url}/page/${page}`);
+        const productResponse = await fetch(`${url}/products/page/${page}`);
         const productsJson = await productResponse.json();
         insertOnTable(productsJson.content);
     }
@@ -82,9 +82,9 @@ function registerProduct(){
 
     const formData = new FormData(form);
 
-    const jsonObj = JSON.stringify(formData);
-
     const obj = Object.fromEntries(formData.entries());
+
+    const jsonObj = JSON.stringify(obj);
 
     console.log(jsonObj);
 
