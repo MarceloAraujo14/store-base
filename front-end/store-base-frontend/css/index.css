@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(78, 78, 78);
+}
+
+.main{
+    height: 800px;
+    width: 1200px;
+    margin-top: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 20px rgb(43, 43, 43);
+    gap: 20px;
+
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button{
+    border-radius: 15px;
+    height: 300px;
+    width: 500px;
+}
