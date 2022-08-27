@@ -66,7 +66,12 @@ function fillProductFields(product) {
 
     Object.entries(product).forEach(([key, value]) => {
         const field = `#${key}`;
-        document.querySelector(field).innerHTML = value;
+        
+        if(key === 'price'){
+            document.querySelector(field).innerHTML = `R$ ${value.toFixed(2)}`;
+        } else {
+            document.querySelector(field).innerHTML = value;
+        }
     });
 }
 
@@ -93,8 +98,8 @@ function registerProduct(){
         body: jsonObj,
         headers: new Headers({"Content-Type": "application/json"})
     })
-    .then(res => res.json())
-    .then(data => console.log(data))
     .catch(err => console.log(err));
+
+    window.location.href="products.html";
     
 }
