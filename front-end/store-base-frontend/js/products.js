@@ -51,7 +51,7 @@ function insertOnTable(products) {
 
 function fillProductFields(product) {
 
-    const list = '<tr>' +
+    const list = '<tr >' +
         '<th scope="row" id="registrationCode"></th>' +
         '<td id="productName"></td>' +
         '<td id="productDescription"></td>' +
@@ -101,5 +101,10 @@ function registerProduct(){
     .catch(err => console.log(err));
 
     window.location.href="products.html";
+    
+}
+
+function editProduct(){
+    
     
 }

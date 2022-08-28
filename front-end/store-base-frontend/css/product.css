@@ -4,7 +4,7 @@ body{
 
 .main{
     height: 800px;
-    width: 1200px;
+    width: fit-content;
     margin-top: 50px;
     padding-top: 50px;
     border-radius: 10px;
@@ -13,16 +13,4 @@ body{
     box-shadow: 5px 5px 20px rgb(43, 43, 43);
     gap: 20px;
 
-}
-
-.botoes{
-   display: flex;
-   flex-direction: column;
-   align-items: flex-end;
-   align-content: flex-end;
-   row-gap: 20px;
-}
-
-.cadastro{
-    align-items: center;
 }

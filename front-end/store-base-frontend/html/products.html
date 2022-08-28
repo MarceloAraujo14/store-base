@@ -11,13 +11,13 @@
 <body onload="findProductsByPage()">
     <div class="main container bg-light">
       
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light ">
           <button class="btn btn-outline my-2 my-sm-0" type="submit" onclick="location.href='register-product.html'">Cadastrar Novo Produto</button>
-          
             <form class="form-inline">
-              <input id="search-bar" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+              <input id="search-bar" class="form-control mr-sm-1" type="search" placeholder="Buscar" aria-label="Search">
               <button class="btn btn-outline my-2 my-sm-0" type="button" onclick="searchProductByName()">Buscar</button>
             </form>
+            <button class="btn btn-outline my-2 my-sm-0 " type="submit" onclick="location.href='index.html'">Voltar</button> 
           </nav>
 
         <table class="table table-hover table-bordered">
@@ -33,7 +33,7 @@
                 <th scope="col">Preço</th>
               </tr>
             </thead>
-            <tbody id="product-list">
+            <tbody id="product-list" onclick="editProduct()">
             </tbody>
         </table>
        
