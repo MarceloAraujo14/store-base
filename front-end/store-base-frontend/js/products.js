@@ -29,7 +29,7 @@ async function findProductsByPage() {
 async function searchProductByName() {
     const toSearch = document.querySelector('#search-bar').value;
     console.log(toSearch)
-    let url = `${url}/products/filter?name=${toSearch}&size=10&page=${page}`;
+    const url = `http://localhost:8080/products/filter?name=${toSearch}&size=10&page=${page}`;
     try {
         const productResponse = await fetch(url);
         const productsJson = await productResponse.json()
@@ -97,11 +97,9 @@ function registerProduct(){
         method: "POST",
         body: jsonObj,
         headers: new Headers({"Content-Type": "application/json"})
-    })
-    .catch(err => console.log(err));
-
-    window.location.href="products.html";
-    
+    }).
+    then(window.location.href="products.html")
+    .catch(err => console.log(err)); 
 }
 
 function editProduct(){
